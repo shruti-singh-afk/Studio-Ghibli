@@ -1,0 +1,158 @@
+/* Characters Section Styles */
+.characters {
+  background-color: var(--primary-light-blue);
+  position: relative;
+  overflow: hidden;
+}
+
+.characters::before,
+.characters::after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.characters::before {
+  top: 5%;
+  left: 5%;
+  background-image: url('../img/soot-sprite.svg');
+  animation: rotate 30s linear infinite;
+}
+
+.characters::after {
+  bottom: 5%;
+  right: 5%;
+  background-image: url('../img/kodama.svg');
+  animation: float 8s ease-in-out infinite;
+}
+
+.characters-carousel {
+  position: relative;
+  margin-top: var(--space-xl);
+}
+
+.carousel-container {
+  display: flex;
+  gap: var(--space-md);
+  overflow-x: hidden;
+  padding: var(--space-sm) 0;
+  transition: transform var(--transition-medium);
+}
+
+.character-card {
+  flex: 0 0 250px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  transition: transform var(--transition-medium);
+}
+
+.character-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.character-image {
+  height: 250px;
+  overflow: hidden;
+}
+
+.character-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-medium);
+}
+
+.character-card:hover .character-image img {
+  transform: scale(1.05);
+}
+
+.character-info {
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.character-name {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-xs);
+}
+
+.character-from {
+  font-size: 0.85rem;
+  color: var(--neutral-medium);
+  font-style: italic;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  transition: all var(--transition-fast);
+}
+
+.carousel-arrow:hover {
+  background-color: var(--accent-yellow);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-prev {
+  left: -20px;
+}
+
+.carousel-next {
+  right: -20px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .character-card {
+    flex: 0 0 220px;
+  }
+  
+  .character-image {
+    height: 220px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .character-card {
+    flex: 0 0 180px;
+  }
+  
+  .character-image {
+    height: 180px;
+  }
+  
+  .carousel-prev {
+    left: 10px;
+  }
+  
+  .carousel-next {
+    right: 10px;
+  }
+}

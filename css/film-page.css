@@ -1,0 +1,30 @@
+.film-detail {
+  padding: 4rem 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.film-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.film-banner {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.film-meta {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.film-body {
+  max-width: 800px;
+  margin: 2rem auto;
+  line-height: 1.6;
+}
+
+.film-body ul {
+  margin-left: 1.5rem;
+}
